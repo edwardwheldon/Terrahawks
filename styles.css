@@ -48,11 +48,6 @@ body {
   z-index:10;
 }
 
-.zeroid1 {
-  top: 20px;
-  left: 172px;
-}
-
 .z-eyes {
   position: absolute;
   border-radius: 50%;
@@ -85,6 +80,11 @@ body {
   border-bottom-right-radius: 100px; 
   border: 3px solid #3E89FB;
   border-top: 0;
+}
+
+.zeroid1 {
+  top: 20px;
+  left: 180px;
 }
 
 .zeroid1 .z-visor {
@@ -120,7 +120,7 @@ body {
 
 .zeroid3 {
   top: 20px;
-  right:172px;
+  right:178px;
 }
 
 .zeroid3 .z-visor {
@@ -136,6 +136,40 @@ body {
   left: 16px;
 }
 
+/* Zeroid 4 */
+.zeroid4 {
+  width: 66px;
+  height: 66px;
+  top: 90px;
+  left:152px;
+}
+
+.zeroid4 .z-visor {
+  top:30px;
+  right:6px;
+  width:65px;
+}
+
+.zeroid4 .z-eyes {
+  top:35px;
+  left:12px;
+  width:12px;
+  height:12px;
+}
+
+.zeroid4 .z-eyes:before {
+  width:12px;
+  height:12px;
+  left:19px;
+}
+
+.zeroid4 .z-mouth {
+  left: 10px;
+  width:30px;
+  top:55px;
+}
+
+/* Zeroid 5 */
 .zeroid5 {
   width: 66px;
   height: 66px;
@@ -151,12 +185,158 @@ body {
 .zeroid5 .z-eyes {
   top:35px;
   left:20px;
+  width:12px;
+  height:12px;
+}
+
+.zeroid5 .z-eyes:before {
+  width:12px;
+  height:12px;
 }
 
 .zeroid5 .z-mouth {
   left: 16px;
   width:30px;
   top:55px;
+}
+
+
+/* Zeroid 6 */
+.zeroid6 {
+  width: 66px;
+  height: 66px;
+  top: 90px;
+  right:152px;
+}
+
+.zeroid6 .z-visor {
+  top:30px;
+  left:6px;
+  width:65px;
+}
+
+.zeroid6 .z-eyes {
+  top:35px;
+  left:24px;
+  width:12px;
+  height:12px;
+}
+
+.zeroid6 .z-eyes:before {
+  width:12px;
+  height:12px;
+  left:19px;
+}
+
+.zeroid6 .z-mouth {
+  left: 20px;
+  width:30px;
+  top:55px;
+}
+
+/* zeroid 7 */
+.zeroid7 {
+  width: 92px;
+  height: 92px;
+  top: 190px;
+  left:104px;
+  /* -webkit-box-reflect: below 3px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2)); */
+}
+
+.zeroid7 .z-visor {
+  top:45px;
+  right:14px;
+  width:84px;
+}
+
+.zeroid7 .z-eyes {
+  top:50px;
+  left:14px;
+  width: 18px;
+  height: 18px;
+}
+
+.zeroid7 .z-eyes:before {
+  left:26px;
+  width: 18px;
+  height: 18px;
+}
+
+.zeroid7 .z-mouth {
+  left: 12px;
+  width:50px;
+  height:1px;
+  top:78px;
+}
+
+/* zeroid 8 */
+.zeroid8 {
+  width: 92px;
+  height: 92px;
+  top: 190px;
+  left:304px;
+  /* -webkit-box-reflect: below 3px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2)); */
+}
+
+.zeroid8 .z-visor {
+  top:45px;
+  left:4px;
+  width:84px;
+}
+
+.zeroid8 .z-eyes {
+  top:50px;
+  left:24px;
+  width: 18px;
+  height: 18px;
+}
+
+.zeroid8 .z-eyes:before {
+  left:26px;
+  width: 18px;
+  height: 18px;
+}
+
+.zeroid8 .z-mouth {
+  left: 18px;
+  width:50px;
+  height:1px;
+  top:78px;
+}
+
+/* zeroid 9 */
+.zeroid9 {
+  width: 92px;
+  height: 92px;
+  top: 190px;
+  right:106px;
+  /* -webkit-box-reflect: below 3px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2)); */
+}
+
+.zeroid9 .z-visor {
+  top:45px;
+  left:14px;
+  width:84px;
+}
+
+.zeroid9 .z-eyes {
+  top:50px;
+  left:33px;
+  width: 18px;
+  height: 18px;
+}
+
+.zeroid9 .z-eyes:before {
+  left:26px;
+  width: 18px;
+  height: 18px;
+}
+
+.zeroid9 .z-mouth {
+  left: 25px;
+  width:50px;
+  height:1px;
+  top:78px;
 }
 
 /* .zeroid2 .z-face:before  {
