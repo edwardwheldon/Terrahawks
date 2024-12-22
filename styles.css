@@ -28,6 +28,105 @@ body {
   height: 500px;
 } */
 
+:root {
+  --cubesize: 68px;
+}
+
+/* .cube-container {
+  width: 100%;
+  height:100%;
+  perspective: 700px;
+  background-color: red;
+  z-index:120;
+} */
+
+
+
+.cube {
+  /* perspective: 1800px; */
+  position: absolute;
+  top:90px;
+  left:150px;
+  width: var(--cubesize);
+  height:  var(--cubesize);
+  transform-style: preserve-3d;
+  transform: rotateX(-38deg) rotateY(0deg);
+  z-index:200;
+  /* turn the cube  */
+  /* transform: rotateX(90deg); */
+  /* transform: rotateY(90deg); */
+}
+
+/* Faces */
+.face {
+  position: absolute;
+  border: 1px solid red;
+
+  width:  var(--cubesize);
+  height:  var(--cubesize);
+  line-height:  var(--cubesize);
+  text-align: center;
+  font-size: 1.25rem;
+  background-color: black;
+  /* filter: blur(1.5px); */
+}
+
+.front {
+  transform: translateZ(34px);
+}
+
+.c-face-top {
+  border-bottom: 1px solid red;
+  width:100%;
+  height:50%;
+}
+
+
+.back {
+  transform: rotateY(180deg) translateZ(34px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(34px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(34px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(34px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(34px);
+}
+
+.cross {
+  position: absolute;
+  right:0;
+  bottom:16%;
+  width: 100%;
+  min-height: 100%;
+  /* background-color: yellow; */
+  height: 32px;
+  border: 0px solid red
+}
+
+.cross:before, .cross:after {
+  position: absolute;
+  content: '';
+  height: 130%;
+  width: 2px;
+  background-color: red;
+}
+.cross:before {
+  transform: rotate(45deg);
+}
+.cross:after {
+  transform: rotate(-45deg);
+}
+
 .zeroid {
   position: absolute;
   border: 2px solid #3E89FB;
@@ -410,10 +509,13 @@ body {
 }
 
 .player-container {
+  perspective: 700px;
   position: absolute;
   top:100px;
   width: 700px;
   height: 400px;
+  /* background: lightblue; */
+  z-index:40
 }
 
 .grid {
