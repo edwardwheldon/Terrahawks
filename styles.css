@@ -45,7 +45,8 @@ body {
   left:180px;
   transform-style: preserve-3d;
   transform: rotateX(-36deg) rotateY(0deg);
-  scale: 0.8
+  scale: 0.8;
+  display: none;
 }
 
 .cube2 {
@@ -53,7 +54,8 @@ body {
   right:315px;
   transform-style: preserve-3d;
   transform: rotateX(-36deg) rotateY(0deg);
-  scale: 0.8
+  scale: 0.8;
+  display: none;
 }
 
 .cube3 {
@@ -61,7 +63,8 @@ body {
   right:180px;
   transform-style: preserve-3d;
   transform: rotateX(-36deg) rotateY(0deg);
-  scale: 0.8
+  scale: 0.8;
+  display: none;
 }
 
 .cube4 {
@@ -69,6 +72,7 @@ body {
   left:150px;
   transform-style: preserve-3d;
   transform: rotateX(-36deg) rotateY(0deg);
+  display: none;
 }
 
 .cube5 {
@@ -76,6 +80,7 @@ body {
   left:316px;
   transform-style: preserve-3d;
   transform: rotateX(-38deg) rotateY(0deg);
+  display: none;
 }
 
 .cube6 {
@@ -83,6 +88,7 @@ body {
   right:150px;
   transform-style: preserve-3d;
   transform: rotateX(-38deg) rotateY(0deg);
+  display: none;
 }
 
 .cube7 {
@@ -91,6 +97,7 @@ body {
   transform-style: preserve-3d;
   transform: rotateX(-34deg) rotateY(0deg);
   scale: 1.3;
+  display: none;
 }
 
 .cube8 {
@@ -99,6 +106,7 @@ body {
   transform-style: preserve-3d;
   transform: rotateX(-34deg) rotateY(0deg);
   scale: 1.3;
+  display: none;
 }
 
 .cube9 {
@@ -107,6 +115,7 @@ body {
   transform-style: preserve-3d;
   transform: rotateX(-34deg) rotateY(0deg);
   scale: 1.3;
+  display: none;
 }
 
 
@@ -270,6 +279,7 @@ body {
 .zeroid1 {
   top: 20px;
   left: 180px;
+  display: none;
 }
 
 .zeroid1 .z-visor {
@@ -289,6 +299,7 @@ body {
 .zeroid2 {
   top: 20px;
   left: 322px;
+  display: none;
 }
 
 .zeroid2 .z-visor {
@@ -306,6 +317,7 @@ body {
 .zeroid3 {
   top: 20px;
   right:178px;
+  display: none;
 }
 
 .zeroid3 .z-visor {
@@ -327,6 +339,7 @@ body {
   height: 66px;
   top: 90px;
   left:152px;
+  display: none;
 }
 
 .zeroid4 .z-visor {
@@ -360,6 +373,7 @@ body {
   height: 66px;
   top: 90px;
   left:315px;
+  display: none;
 }
 
 .zeroid5 .z-visor {
@@ -392,6 +406,7 @@ body {
   height: 66px;
   top: 90px;
   right:152px;
+  display: none;
 }
 
 .zeroid6 .z-visor {
@@ -425,7 +440,7 @@ body {
   height: 92px;
   top: 190px;
   left:104px;
-  /* -webkit-box-reflect: below 3px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2)); */
+  display: none;
 }
 
 .zeroid7 .z-visor {
@@ -460,7 +475,7 @@ body {
   height: 92px;
   top: 190px;
   left:304px;
-  /* -webkit-box-reflect: below 3px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2)); */
+  display: none;
 }
 
 .zeroid8 .z-visor {
@@ -495,7 +510,7 @@ body {
   height: 92px;
   top: 190px;
   right:106px;
-  /* -webkit-box-reflect: below 3px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2)); */
+  display: none;
 }
 
 .zeroid9 .z-visor {
@@ -628,4 +643,8 @@ body {
   to {
     transform: rotateX(55deg);
   }
+}
+
+.hover {
+  background: red;
 }
