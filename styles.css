@@ -40,7 +40,7 @@ body {
   transform: rotateX(-38deg) rotateY(0deg);
 }
 
-.cube1 {
+.cube0 {
   top:10px;
   left:180px;
   transform-style: preserve-3d;
@@ -49,7 +49,7 @@ body {
   display: none;
 }
 
-.cube2 {
+.cube1 {
   top:10px;
   right:315px;
   transform-style: preserve-3d;
@@ -58,7 +58,7 @@ body {
   display: none;
 }
 
-.cube3 {
+.cube2 {
   top:10px;
   right:180px;
   transform-style: preserve-3d;
@@ -67,7 +67,7 @@ body {
   display: none;
 }
 
-.cube4 {
+.cube3 {
   top:90px;
   left:150px;
   transform-style: preserve-3d;
@@ -75,7 +75,7 @@ body {
   display: none;
 }
 
-.cube5 {
+.cube4 {
   top:90px;
   left:316px;
   transform-style: preserve-3d;
@@ -83,7 +83,7 @@ body {
   display: none;
 }
 
-.cube6 {
+.cube5 {
   top:90px;
   right:150px;
   transform-style: preserve-3d;
@@ -91,7 +91,7 @@ body {
   display: none;
 }
 
-.cube7 {
+.cube6 {
   bottom:130px;
   left:110px;
   transform-style: preserve-3d;
@@ -100,7 +100,7 @@ body {
   display: none;
 }
 
-.cube8 {
+.cube7 {
   bottom:130px;
   left:315px;
   transform-style: preserve-3d;
@@ -109,7 +109,7 @@ body {
   display: none;
 }
 
-.cube9 {
+.cube8 {
   bottom:130px;
   right:114px;
   transform-style: preserve-3d;
@@ -276,65 +276,65 @@ body {
   border-top: 0;
 }
 
-.zeroid1 {
+.zeroid0 {
   top: 20px;
   left: 180px;
   display: none;
 }
 
-.zeroid1 .z-visor {
+.zeroid0 .z-visor {
   top:25px;
   right:5px;
 }
 
-.zeroid1 .z-eyes {
+.zeroid0 .z-eyes {
   border-radius: 50%;
   left:10px;
 }
 
-.zeroid1 .z-mouth {
+.zeroid0 .z-mouth {
   left: 9px;
 }
 
-.zeroid2 {
+.zeroid1 {
   top: 20px;
   left: 322px;
   display: none;
 }
 
-.zeroid2 .z-visor {
+.zeroid1 .z-visor {
   right:2px;
 }
 
-.zeroid2 .z-eyes {
+.zeroid1 .z-eyes {
   left:15px;
 }
 
-.zeroid2 .z-mouth {
+.zeroid1 .z-mouth {
   left: 12px;
 }
 
-.zeroid3 {
+.zeroid2 {
   top: 20px;
   right:178px;
   display: none;
 }
 
-.zeroid3 .z-visor {
+.zeroid2 .z-visor {
   left:5px;
 }
 
-.zeroid3 .z-eyes {
+.zeroid2 .z-eyes {
   border-radius: 50%;
   right:26px;
 }
 
-.zeroid3 .z-mouth {
+.zeroid2 .z-mouth {
   left: 16px;
 }
 
 /* Zeroid 4 */
-.zeroid4 {
+.zeroid3 {
   width: 66px;
   height: 66px;
   top: 90px;
@@ -342,33 +342,33 @@ body {
   display: none;
 }
 
-.zeroid4 .z-visor {
+.zeroid3 .z-visor {
   top:30px;
   right:6px;
   width:65px;
 }
 
-.zeroid4 .z-eyes {
+.zeroid3 .z-eyes {
   top:35px;
   left:12px;
   width:12px;
   height:12px;
 }
 
-.zeroid4 .z-eyes:before {
+.zeroid3 .z-eyes:before {
   width:12px;
   height:12px;
   left:19px;
 }
 
-.zeroid4 .z-mouth {
+.zeroid3 .z-mouth {
   left: 10px;
   width:30px;
   top:55px;
 }
 
 /* Zeroid 5 */
-.zeroid5 {
+.zeroid4 {
   width: 66px;
   height: 66px;
   top: 90px;
@@ -376,24 +376,24 @@ body {
   display: none;
 }
 
-.zeroid5 .z-visor {
+.zeroid4 .z-visor {
   top:30px;
   width:65px;
 }
 
-.zeroid5 .z-eyes {
+.zeroid4 .z-eyes {
   top:35px;
   left:20px;
   width:12px;
   height:12px;
 }
 
-.zeroid5 .z-eyes:before {
+.zeroid4 .z-eyes:before {
   width:12px;
   height:12px;
 }
 
-.zeroid5 .z-mouth {
+.zeroid4 .z-mouth {
   left: 16px;
   width:30px;
   top:55px;
@@ -401,41 +401,41 @@ body {
 
 
 /* Zeroid 6 */
-.zeroid6 {
+.zeroid5 {
   width: 66px;
   height: 66px;
   top: 90px;
   right:152px;
-  display: none;
+  display:none;
 }
 
-.zeroid6 .z-visor {
+.zeroid5 .z-visor {
   top:30px;
   left:6px;
   width:65px;
 }
 
-.zeroid6 .z-eyes {
+.zeroid5 .z-eyes {
   top:35px;
   left:24px;
   width:12px;
   height:12px;
 }
 
-.zeroid6 .z-eyes:before {
+.zeroid5 .z-eyes:before {
   width:12px;
   height:12px;
   left:19px;
 }
 
-.zeroid6 .z-mouth {
+.zeroid5 .z-mouth {
   left: 20px;
   width:30px;
   top:55px;
 }
 
 /* zeroid 7 */
-.zeroid7 {
+.zeroid6 {
   width: 92px;
   height: 92px;
   top: 190px;
@@ -443,15 +443,50 @@ body {
   display: none;
 }
 
-.zeroid7 .z-visor {
+.zeroid6 .z-visor {
   top:45px;
   right:14px;
   width:84px;
 }
 
-.zeroid7 .z-eyes {
+.zeroid6 .z-eyes {
   top:50px;
   left:14px;
+  width: 18px;
+  height: 18px;
+}
+
+.zeroid6 .z-eyes:before {
+  left:26px;
+  width: 18px;
+  height: 18px;
+}
+
+.zeroid6 .z-mouth {
+  left: 12px;
+  width:50px;
+  height:1px;
+  top:78px;
+}
+
+/* zeroid 8 */
+.zeroid7 {
+  width: 92px;
+  height: 92px;
+  top: 190px;
+  left:304px;
+  display: none;
+}
+
+.zeroid7 .z-visor {
+  top:45px;
+  left:4px;
+  width:84px;
+}
+
+.zeroid7 .z-eyes {
+  top:50px;
+  left:24px;
   width: 18px;
   height: 18px;
 }
@@ -463,30 +498,30 @@ body {
 }
 
 .zeroid7 .z-mouth {
-  left: 12px;
+  left: 18px;
   width:50px;
   height:1px;
   top:78px;
 }
 
-/* zeroid 8 */
+/* zeroid 9 */
 .zeroid8 {
   width: 92px;
   height: 92px;
   top: 190px;
-  left:304px;
+  right:106px;
   display: none;
 }
 
 .zeroid8 .z-visor {
   top:45px;
-  left:4px;
+  left:14px;
   width:84px;
 }
 
 .zeroid8 .z-eyes {
   top:50px;
-  left:24px;
+  left:33px;
   width: 18px;
   height: 18px;
 }
@@ -498,41 +533,6 @@ body {
 }
 
 .zeroid8 .z-mouth {
-  left: 18px;
-  width:50px;
-  height:1px;
-  top:78px;
-}
-
-/* zeroid 9 */
-.zeroid9 {
-  width: 92px;
-  height: 92px;
-  top: 190px;
-  right:106px;
-  display: none;
-}
-
-.zeroid9 .z-visor {
-  top:45px;
-  left:14px;
-  width:84px;
-}
-
-.zeroid9 .z-eyes {
-  top:50px;
-  left:33px;
-  width: 18px;
-  height: 18px;
-}
-
-.zeroid9 .z-eyes:before {
-  left:26px;
-  width: 18px;
-  height: 18px;
-}
-
-.zeroid9 .z-mouth {
   left: 25px;
   width:50px;
   height:1px;
@@ -616,7 +616,8 @@ body {
   width: 700px;
   height: 400px;
   /* background: lightblue; */
-  z-index:140
+  z-index:100;
+  pointer-events: none; 
 }
 
 .grid {
@@ -646,5 +647,5 @@ body {
 }
 
 .hover {
-  background: red;
+  background: rgb(14, 13, 17) !important;
 }
