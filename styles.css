@@ -5,7 +5,14 @@ body {
   filter: blur(1px) saturate(5);
 }
 
-/* .intro-lines-container-vertical {
+.intro-container {
+  width: 500px;
+  height: 500px;
+  margin: 1em;
+}
+
+.intro-lines-container-vertical {
+  position: absolute;
   width: 500px;
   height: 500px;
   display: flex;
@@ -26,7 +33,50 @@ body {
   width: 5px;
   background-color: rgb(255, 255, 255);
   height: 500px;
-} */
+}
+
+#intro-line1, #intro-line2, #intro-line3, #intro-line4 {
+  opacity: 0;
+}
+
+.container {
+  width: 900px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+  perspective: 700px;
+  display: none;
+}
+
+.player-container {
+  perspective: 700px;
+  position: absolute;
+  top:100px;
+  width: 700px;
+  height: 400px;
+  /* background: lightblue; */
+  z-index:100;
+  pointer-events: none; 
+}
+
+.grid {
+  /* display:none !important; */
+  width: 500px;
+  height: 500px;
+  background-color: #5b746c;
+  transform: rotateX(55deg);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  animation: rotateShift 1.5s ease-in-out;
+  position: relative;
+}
+
+.grid div {
+  background-color: rgb(0, 0, 0);
+}
 
 :root {
   --cubesize: 68px;
@@ -83,6 +133,7 @@ body {
   display: none;
 }
 
+
 .cube5 {
   top:90px;
   right:150px;
@@ -90,6 +141,8 @@ body {
   transform: rotateX(-38deg) rotateY(0deg);
   display: none;
 }
+
+
 
 .cube6 {
   bottom:130px;
@@ -599,43 +652,7 @@ body {
   height: 18px;
 } */
 
-.container {
-  width: 900px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1em;
-  perspective: 700px;
-}
 
-.player-container {
-  perspective: 700px;
-  position: absolute;
-  top:100px;
-  width: 700px;
-  height: 400px;
-  /* background: lightblue; */
-  z-index:100;
-  pointer-events: none; 
-}
-
-.grid {
-  /* display:none !important; */
-  width: 500px;
-  height: 500px;
-  background-color: #5b746c;
-  transform: rotateX(55deg);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 5px;
-  animation: rotateShift 1.5s ease-in-out;
-  position: relative;
-}
-
-.grid div {
-  background-color: rgb(0, 0, 0);
-}
 
 @keyframes rotateShift {
   from {
