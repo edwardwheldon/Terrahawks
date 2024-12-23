@@ -1,8 +1,25 @@
 body {
   background: rgb(0, 0, 0);
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   filter: blur(1px) saturate(5);
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  color:white;
+  text-shadow: 2px 2px 5px rgb(5, 143, 0);
+  margin-bottom: 0px;
+}
+
+p {
+  color:white;
+  margin: 0px;
 }
 
 .intro-container {
@@ -661,4 +678,9 @@ body {
 
 .hover {
   background: rgb(14, 13, 17) !important;
+}
+
+@keyframes rotateShiftReverse {
+  0% { transform: rotateX(55deg); }
+  100% { transform: rotateX(0deg); }
 }

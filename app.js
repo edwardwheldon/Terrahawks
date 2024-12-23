@@ -5,7 +5,10 @@ let currentPlayer = playerZeroid;
 const gameBoard = Array(9).fill(null);
 const container = document.getElementById("container");
 const introContainer = document.getElementById("intro-container");
+const grid = document.getElementById("grid");
 let isUserTurn = true;
+const gameStatusElement = document.getElementById('gameStatus');
+const restartButton = document.getElementById('restartButton');
 
 introLine1 = document.getElementById("intro-line1");
 introLine2 = document.getElementById("intro-line2");
@@ -28,8 +31,8 @@ function animateLine(line, delay) {
 
 animateLine(introLine1, 0)
   .then(() => animateLine(introLine2, 1000))
-  .then(() => animateLine(introLine3, 1000))
-  .then(() => animateLine(introLine4, 500))
+  .then(() => animateLine(introLine3, 700))
+  .then(() => animateLine(introLine4, 400))
   .then(() => {
     introContainer.style.display = "none";
     container.style.display = "flex";
@@ -72,7 +75,7 @@ function handleCellClick(event) {
       return;
     }
 
-    setTimeout(makeComputerMove, 2000);
+    setTimeout(makeComputerMove, 1000);
   } else {
     console.log("place taken");
   }
@@ -164,11 +167,22 @@ function checkWinner() {
 }
 
 function handleGameEnd(winner) {
-  if (winner === "draw") {
-    alert("It's a draw!");
-  } else {
-    alert(`${winner} has won!`);
-  }
+  // if (winner === "draw") {
+  //   alert("It's a draw!");
+  // } else {
+  //   alert(`${winner} has won!`);
+  // }
+
+    // Update game status message
+    if (winner === 'zeroid') {
+      gameStatusElement.textContent = "Zeroids Conquer!"; 
+    } else if (winner === 'cube') {
+      gameStatusElement.textContent = "Cubes Triumph!";
+    } else {
+      gameStatusElement.textContent = "It's a Draw!";
+    }
+
+    restartButton.style.display = 'block'; 
 }
 
 cells.forEach((cell) => {
