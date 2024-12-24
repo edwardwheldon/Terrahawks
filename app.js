@@ -4,7 +4,7 @@ const introContainer = document.getElementById('intro-container');
 const grid = document.getElementById('grid');
 const gameStatusElement = document.getElementById('gameStatus');
 const restartButton = document.getElementById('restartButton');
-const game = new Game();
+const game = new Game(AiType.RANDOM);
 
 introLine1 = document.getElementById('intro-line1');
 introLine2 = document.getElementById('intro-line2');

@@ -3,10 +3,20 @@ const PlayerType = {
   CUBE: 'cube',
 };
 
+const AiType = {
+  RANDOM: 'random',
+  UNBEATABLE: 'unbeatable',
+};
+
 class Game {
   currentPlayer = PlayerType.ZEROID;
   isUserTurn = true;
   board = Array(9).fill(null);
+  aiType;
+
+  constructor(aiType) {
+    this.aiType = aiType;
+  }
 
   reset() {
     this.isUserTurn = true;
@@ -77,6 +87,15 @@ class Game {
    * @throws error if it is not possible to make a move
    */
   makeComputerMove() {
+    switch (this.aiType) {
+      case AiType.RANDOM:
+        return this.makeComputerMoveRandom();
+      case AiType.UNBEATABLE:
+        return this.makeComputerMoveUnbeatable();
+    }
+  }
+
+  makeComputerMoveRandom() {
     const emptyCells = [];
     for (let i = 0; i < this.board.length; i++) {
       if (this.board[i] === null) {
@@ -96,5 +115,10 @@ class Game {
     }
 
     return computerMoveIndex;
+  }
+
+  makeComputerMoveUnbeatable() {
+    // TODO
+    return this.makeComputerMoveRandom();
   }
 }
