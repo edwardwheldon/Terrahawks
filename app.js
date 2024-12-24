@@ -50,13 +50,12 @@ function handleCellClick(event) {
     gameBoard[cellIndex] = currentPlayer;
 
     const playerIcon = document.getElementById(playerIconId);
-
+    playerIcon.style.display = 'block';
     playerIcon.animate(
       [
         { opacity: 0.25 },
         {
           opacity: 1,
-          display: "block",
         },
       ],
       {
@@ -166,6 +165,47 @@ function checkWinner() {
   return null; // No winner yet
 }
 
+function restartGame() {
+
+  container.style.display = "none";
+  introContainer.style.display = "flex";
+
+  animateLine(introLine1, 0)
+  .then(() => animateLine(introLine2, 1000))
+  .then(() => animateLine(introLine3, 700))
+  .then(() => animateLine(introLine4, 400))
+  .then(() => {
+    introContainer.style.display = "none";
+    container.style.display = "flex";
+  });
+
+  currentPlayer = playerZeroid;
+  gameBoard.fill(null);
+  isUserTurn = true; 
+
+  gameStatusElement.textContent = "Zeroids vs Cubes"; 
+
+  cells.forEach((cell) => {
+    cell.classList.remove("hover"); 
+    const cellIndex = Array.from(cells).indexOf(cell);
+    const zeroidIconId = `zeroid${cellIndex}`;
+    const cubeIconId = `cube${cellIndex}`;
+    const zeroidIcon = document.getElementById(zeroidIconId);
+    const cubeIcon = document.getElementById(cubeIconId);
+
+    console.log(zeroidIcon)
+    console.log(cubeIcon)
+
+      zeroidIcon.style.display = "none"; 
+
+
+      cubeIcon.style.display = "none"; 
+ 
+  });
+
+}
+
+
 function handleGameEnd(winner) {
   // if (winner === "draw") {
   //   alert("It's a draw!");
@@ -183,7 +223,9 @@ function handleGameEnd(winner) {
     }
 
     restartButton.style.display = 'block'; 
+    restartButton.addEventListener('click', restartGame); 
 }
+
 
 cells.forEach((cell) => {
   cell.addEventListener("click", handleCellClick);

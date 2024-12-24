@@ -28,6 +28,10 @@ p {
   margin: 1em;
 }
 
+.hidden {
+  display: none;
+}
+
 .intro-lines-container-vertical {
   position: absolute;
   width: 500px;
