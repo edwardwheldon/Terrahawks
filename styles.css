@@ -12,13 +12,13 @@ header {
 }
 
 h1 {
-  color:white;
+  color: white;
   text-shadow: 2px 2px 5px rgb(5, 143, 0);
   margin-bottom: 0px;
 }
 
 p {
-  color:white;
+  color: white;
   margin: 0px;
 }
 
@@ -218,7 +218,7 @@ p {
 .c-eyes:after {
   position: absolute;
   left: 0px;
-  content: "";
+  content: '';
   width: 8px;
   height: 8px;
   border-top: 0px solid transparent;
@@ -283,7 +283,7 @@ p {
 .cross:before,
 .cross:after {
   position: absolute;
-  content: "";
+  content: '';
   height: 130%;
   width: 2px;
   background-color: red;
@@ -326,7 +326,7 @@ p {
 }
 
 .z-eyes:before {
-  content: "";
+  content: '';
   position: absolute;
   background: white;
   width: 10px;
@@ -337,7 +337,7 @@ p {
 }
 
 .z-mouth {
-  content: "";
+  content: '';
   position: absolute;
   top: 45px;
   left: 13px;
@@ -685,6 +685,10 @@ p {
 }
 
 @keyframes rotateShiftReverse {
-  0% { transform: rotateX(55deg); }
-  100% { transform: rotateX(0deg); }
+  0% {
+    transform: rotateX(55deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
 }

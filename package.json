@@ -1,0 +1,22 @@
+{
+  "name": "terrahawks",
+  "version": "1.0.0",
+  "description": "Terrahawks Tic Tac Toe Game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edwardwheldon/Terrahawks"
+  },
+  "author": "Ed",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/edwardwheldon/Terrahawks/issues"
+  },
+  "devDependencies": {
+    "cspell": "^8.17.1",
+    "prettier": "^3.4.2"
+  }
+}
