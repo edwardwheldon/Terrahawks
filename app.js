@@ -207,13 +207,9 @@ function restartGame() {
 
 
 function handleGameEnd(winner) {
-  // if (winner === "draw") {
-  //   alert("It's a draw!");
-  // } else {
-  //   alert(`${winner} has won!`);
-  // }
 
-    // Update game status message
+    cells.forEach(cell => cell.removeEventListener('click', handleCellClick)); 
+
     if (winner === 'zeroid') {
       gameStatusElement.textContent = "Zeroids Conquer!"; 
     } else if (winner === 'cube') {
