@@ -196,10 +196,10 @@ function restartGame() {
     console.log(zeroidIcon)
     console.log(cubeIcon)
 
-      zeroidIcon.style.display = "none"; 
-
-
+    zeroidIcon.style.display = "none"; 
       cubeIcon.style.display = "none"; 
+
+    cells.forEach(cell => cell.addEventListener('click', handleCellClick)); 
  
   });
 
