@@ -37,6 +37,7 @@ animateLine(introLine1, 0)
 function animateIcon(iconId) {
   const icon = document.getElementById(iconId);
   icon.style.display = 'block';
+  console.log(icon)
   if (iconId[0] == 'z') {
     // Zeroid
     icon.animate([{ opacity: 0.25 }, { opacity: 1 }], {
@@ -71,7 +72,9 @@ function handleCellClick(event) {
 function makeComputerMove() {
   const currentPlayer = game.currentPlayer;
   const computerMoveIndex = game.makeComputerMove();
-  const computerIconId = `${currentPlayer}${computerMoveIndex}`;
+  const computerIconId = `cube${computerMoveIndex}-container`;
+
+  console.log(computerIconId)
   animateIcon(computerIconId);
   checkGameEnd();
 }
