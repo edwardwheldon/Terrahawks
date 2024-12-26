@@ -84,51 +84,7 @@ p {
   pointer-events: none;
 }
 
-.cube0-container {
-  position: absolute;
-  top: 0px;
-  width: 700px;
-  height: 400px;
-  perspective: 700px;
-  display: none;
-
-}
-.cube1-container {
-  position: absolute;
-  top: 0px;
-  width: 700px;
-  height: 400px;
-  perspective: 700px;
-  display: none;
-
-}
-.cube2-container {
-  position: absolute;
-  top: 0px;
-  width: 700px;
-  height: 400px;
-  perspective: 700px;
-  display: none;
-
-}
-.cube3-container {
-  position: absolute;
-  top: 0px;
-  width: 700px;
-  height: 400px;
-  perspective: 700px;
-  display: none;
-
-}
-.cube4-container {
-  position: absolute;
-  top: 100px;
-  width: 700px;
-  height: 400px;
-  perspective: 700px;
-  display: none;
-}
-.cube5-container {
+.cube-container {
   position: absolute;
   top: 0px;
   width: 700px;
@@ -136,33 +92,6 @@ p {
   perspective: 700px;
   display: none;
 }
-.cube6-container {
-  position: absolute;
-  top: 0px;
-  width: 700px;
-  height: 400px;
-  perspective: 700px;
-  display: none;
-
-}
-.cube7-container {
-  position: absolute;
-  top: 0px;
-  width: 700px;
-  height: 400px;
-  perspective: 700px;
-  display: none;
-
-}
-.cube8-container {
-  position: absolute;
-  top: 0px;
-  width: 700px;
-  height: 400px;
-  perspective: 700px;
-  display: none;
-}
-
 
 .grid {
   /* display:none !important; */

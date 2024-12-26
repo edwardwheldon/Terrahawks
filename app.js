@@ -37,18 +37,16 @@ animateLine(introLine1, 0)
 function animateIcon(iconId) {
   const icon = document.getElementById(iconId);
   icon.style.display = 'block';
-  console.log(icon)
   if (iconId[0] == 'z') {
     // Zeroid
     icon.animate([{ opacity: 0.25 }, { opacity: 1 }], {
-      duration: 200,
+      duration: 600,
       fill: 'forwards',
     });
   } else {
     // Cube
     icon.animate([{ opacity: 0.25 }, { opacity: 1 }], {
-      duration: 1000,
-      fill: 'forwards',
+      duration: 600,
     });
   }
 }
@@ -73,9 +71,7 @@ function handleCellClick(event) {
 function makeComputerMove() {
   const currentPlayer = game.currentPlayer;
   const computerMoveIndex = game.makeComputerMove();
-  const computerIconId = `cube${computerMoveIndex}-container`;
-
-  console.log(computerIconId)
+  const computerIconId = `${currentPlayer}${computerMoveIndex}`;
   animateIcon(computerIconId);
   checkGameEnd();
 }
