@@ -46,8 +46,9 @@ function animateIcon(iconId) {
     });
   } else {
     // Cube
-    icon.animate([{ opacity: 1 }, { opacity: 0.25 }], {
-      duration: 200,
+    icon.animate([{ opacity: 0.25 }, { opacity: 1 }], {
+      duration: 1000,
+      fill: 'forwards',
     });
   }
 }

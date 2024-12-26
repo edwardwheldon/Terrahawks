@@ -85,49 +85,82 @@ p {
 }
 
 .cube0-container {
+  position: absolute;
+  top: 0px;
+  width: 700px;
+  height: 400px;
   perspective: 700px;
-  background:red;
-  z-index: 100;
+  display: none;
 
 }
 .cube1-container {
+  position: absolute;
+  top: 0px;
+  width: 700px;
+  height: 400px;
   perspective: 700px;
-  z-index: 100;
+  display: none;
 
 }
 .cube2-container {
+  position: absolute;
+  top: 0px;
+  width: 700px;
+  height: 400px;
   perspective: 700px;
-  z-index: 100;
+  display: none;
 
 }
 .cube3-container {
+  position: absolute;
+  top: 0px;
+  width: 700px;
+  height: 400px;
   perspective: 700px;
-  z-index: 100;
+  display: none;
 
 }
 .cube4-container {
+  position: absolute;
+  top: 100px;
+  width: 700px;
+  height: 400px;
   perspective: 700px;
-  z-index: 100;
-
+  display: none;
 }
 .cube5-container {
+  position: absolute;
+  top: 0px;
+  width: 700px;
+  height: 400px;
   perspective: 700px;
-  z-index: 100;
-
+  display: none;
 }
 .cube6-container {
+  position: absolute;
+  top: 0px;
+  width: 700px;
+  height: 400px;
   perspective: 700px;
-  z-index: 100;
+  display: none;
 
 }
 .cube7-container {
+  position: absolute;
+  top: 0px;
+  width: 700px;
+  height: 400px;
   perspective: 700px;
-  z-index: 100;
+  display: none;
 
 }
 .cube8-container {
+  position: absolute;
+  top: 0px;
+  width: 700px;
+  height: 400px;
   perspective: 700px;
-  z-index: 100;
+  display: none;
 }
 
 
@@ -166,7 +199,6 @@ p {
   transform-style: preserve-3d;
   transform: rotateX(-36deg) rotateY(0deg);
   scale: 0.8;
-  display: none;
 }
 
 .cube1 {
@@ -175,7 +207,6 @@ p {
   transform-style: preserve-3d;
   transform: rotateX(-36deg) rotateY(0deg);
   scale: 0.8;
-  display: none;
 }
 
 .cube2 {
@@ -184,7 +215,6 @@ p {
   transform-style: preserve-3d;
   transform: rotateX(-36deg) rotateY(0deg);
   scale: 0.8;
-  display: none;
 }
 
 .cube3 {
@@ -192,7 +222,6 @@ p {
   left: 150px;
   transform-style: preserve-3d;
   transform: rotateX(-36deg) rotateY(0deg);
-  display: none;
 }
 
 .cube4 {
@@ -200,7 +229,6 @@ p {
   left: 316px;
   transform-style: preserve-3d;
   transform: rotateX(-38deg) rotateY(0deg);
-  display: none;
 }
 
 .cube5 {
@@ -208,7 +236,6 @@ p {
   right: 150px;
   transform-style: preserve-3d;
   transform: rotateX(-38deg) rotateY(0deg);
-  display: none;
 }
 
 .cube6 {
@@ -217,7 +244,6 @@ p {
   transform-style: preserve-3d;
   transform: rotateX(-34deg) rotateY(0deg);
   scale: 1.3;
-  display: none;
 }
 
 .cube7 {
@@ -226,7 +252,6 @@ p {
   transform-style: preserve-3d;
   transform: rotateX(-34deg) rotateY(0deg);
   scale: 1.3;
-  display: none;
 }
 
 .cube8 {
@@ -235,7 +260,6 @@ p {
   transform-style: preserve-3d;
   transform: rotateX(-34deg) rotateY(0deg);
   scale: 1.3;
-  display: none;
 }
 
 /* Faces */
