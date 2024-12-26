@@ -79,7 +79,6 @@ p {
   top: 100px;
   width: 700px;
   height: 400px;
-  /* background: lightblue; */
   z-index: 50;
   pointer-events: none;
 }
@@ -91,10 +90,10 @@ p {
   height: 400px;
   perspective: 700px;
   display: none;
+  z-index: 20;
 }
 
 .grid {
-  /* display:none !important; */
   width: 500px;
   height: 500px;
   background-color: #5b746c;
