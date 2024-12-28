@@ -26,15 +26,15 @@ function startGame() {
 
   // Animate lines with delays
   setTimeout(() => { introLine1.style.opacity = 1; }, 0);
-  setTimeout(() => { introLine2.style.opacity = 1; }, 600);
-  setTimeout(() => { introLine3.style.opacity = 1; }, 1000);
-  setTimeout(() => { introLine4.style.opacity = 1; }, 1500);
+  setTimeout(() => { introLine2.style.opacity = 1; }, 700);
+  setTimeout(() => { introLine3.style.opacity = 1; }, 1400);
+  setTimeout(() => { introLine4.style.opacity = 1; }, 2000);
 
   // Hide intro, show game after final delay
   setTimeout(() => {
     introContainer.style.display = "none";
     container.style.display = "flex";
-  }, 1600); // Adjust this delay as needed
+  }, 2500); // Adjust this delay as needed
 }
 
 
