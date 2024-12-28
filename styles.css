@@ -61,6 +61,7 @@ p {
 #intro-line3,
 #intro-line4 {
   opacity: 0;
+  transition: opacity 0.5s ease-in-out; 
 }
 
 .container {

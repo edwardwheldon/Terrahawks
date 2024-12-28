@@ -1,42 +1,42 @@
-const cells = document.querySelectorAll(".grid div");
-const playerZeroid = "zeroid";
-const playerCube = "cube";
+const cells = document.querySelectorAll('.grid div');
+const playerZeroid = 'zeroid';
+const playerCube = 'cube';
 let currentPlayer = playerZeroid;
 const gameBoard = Array(9).fill(null);
-const container = document.getElementById("container");
-const introContainer = document.getElementById("intro-container");
-const grid = document.getElementById("grid");
+const container = document.getElementById('container');
+const introContainer = document.getElementById('intro-container');
+const grid = document.getElementById('grid');
 let isUserTurn = true;
 const gameStatusElement = document.getElementById('gameStatus');
 const restartButton = document.getElementById('restartButton');
 
-introLine1 = document.getElementById("intro-line1");
-introLine2 = document.getElementById("intro-line2");
-introLine3 = document.getElementById("intro-line3");
-introLine4 = document.getElementById("intro-line4");
+introLine1 = document.getElementById('intro-line1');
+introLine2 = document.getElementById('intro-line2');
+introLine3 = document.getElementById('intro-line3');
+introLine4 = document.getElementById('intro-line4');
 
-function animateLine(line, delay) {
-  return new Promise((resolve) => {
-    line.style.opacity = 0;
-    setTimeout(() => {
-      line
-        .animate([{ opacity: 0.25 }, { opacity: 1 }], {
-          duration: 200,
-          fill: "forwards",
-        })
-        .finished.then(resolve);
-    }, delay);
-  });
-}
+startGame();
 
-animateLine(introLine1, 0)
-  .then(() => animateLine(introLine2, 1000))
-  .then(() => animateLine(introLine3, 700))
-  .then(() => animateLine(introLine4, 400))
-  .then(() => {
+function startGame() {
+  // Show lines with initial opacity 0
+  introLine1.style.opacity = 0;
+  introLine2.style.opacity = 0;
+  introLine3.style.opacity = 0;
+  introLine4.style.opacity = 0;
+
+  // Animate lines with delays
+  setTimeout(() => { introLine1.style.opacity = 1; }, 0);
+  setTimeout(() => { introLine2.style.opacity = 1; }, 600);
+  setTimeout(() => { introLine3.style.opacity = 1; }, 1000);
+  setTimeout(() => { introLine4.style.opacity = 1; }, 1500);
+
+  // Hide intro, show game after final delay
+  setTimeout(() => {
     introContainer.style.display = "none";
     container.style.display = "flex";
-  });
+  }, 1600); // Adjust this delay as needed
+}
+
 
 function handleCellClick(event) {
   if (!isUserTurn) {
@@ -60,8 +60,8 @@ function handleCellClick(event) {
       ],
       {
         duration: 200,
-        fill: "forwards",
-      }
+        fill: 'forwards',
+      },
     );
 
     currentPlayer = playerCube;
@@ -76,20 +76,20 @@ function handleCellClick(event) {
 
     setTimeout(makeComputerMove, 1000);
   } else {
-    console.log("place taken");
+    console.log('place taken');
   }
 }
 
 function handleCellMouseOver(event) {
   const cell = event.target;
   if (!cell.querySelector(`.${playerZeroid}, .${playerCube}`)) {
-    cell.classList.add("hover");
+    cell.classList.add('hover');
   }
 }
 
 function handleCellMouseOut(event) {
   const cell = event.target;
-  cell.classList.remove("hover");
+  cell.classList.remove('hover');
 }
 
 function makeComputerMove() {
@@ -111,7 +111,7 @@ function makeComputerMove() {
   gameBoard[computerMoveIndex] = playerCube;
   const computerIconId = `${currentPlayer}${computerMoveIndex}`;
   const computerIcon = document.getElementById(computerIconId);
-  computerIcon.style.display = "block";
+  computerIcon.style.display = 'block';
   computerIcon.animate(
     [
       {
@@ -123,7 +123,7 @@ function makeComputerMove() {
     ],
     {
       duration: 200,
-    }
+    },
   );
   currentPlayer = playerZeroid;
   isUserTurn = true;
@@ -148,83 +148,66 @@ function checkWinner() {
 
   for (const condition of winConditions) {
     const [a, b, c] = condition;
-    if (
-      gameBoard[a] &&
-      gameBoard[a] === gameBoard[b] &&
-      gameBoard[a] === gameBoard[c]
-    ) {
+    if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
       return gameBoard[a];
     }
   }
 
   // Check for a draw
   if (!gameBoard.includes(null)) {
-    return handleGameEnd("draw");
+    return handleGameEnd('draw');
   }
 
   return null; // No winner yet
 }
 
 function restartGame() {
+  container.style.display = 'none';
+  introContainer.style.display = 'flex';
 
-  container.style.display = "none";
-  introContainer.style.display = "flex";
-
-  animateLine(introLine1, 0)
-  .then(() => animateLine(introLine2, 1000))
-  .then(() => animateLine(introLine3, 700))
-  .then(() => animateLine(introLine4, 400))
-  .then(() => {
-    introContainer.style.display = "none";
-    container.style.display = "flex";
-  });
+  startGame();
 
   currentPlayer = playerZeroid;
   gameBoard.fill(null);
-  isUserTurn = true; 
+  isUserTurn = true;
 
-  gameStatusElement.textContent = "Zeroids vs Cubes"; 
+  gameStatusElement.textContent = 'Zeroids vs Cubes';
 
   cells.forEach((cell) => {
-    cell.classList.remove("hover"); 
+    cell.classList.remove('hover');
     const cellIndex = Array.from(cells).indexOf(cell);
     const zeroidIconId = `zeroid${cellIndex}`;
     const cubeIconId = `cube${cellIndex}`;
     const zeroidIcon = document.getElementById(zeroidIconId);
     const cubeIcon = document.getElementById(cubeIconId);
 
-    console.log(zeroidIcon)
-    console.log(cubeIcon)
+    console.log(zeroidIcon);
+    console.log(cubeIcon);
 
-    zeroidIcon.style.display = "none"; 
-      cubeIcon.style.display = "none"; 
+    zeroidIcon.style.display = 'none';
+    cubeIcon.style.display = 'none';
 
-    cells.forEach(cell => cell.addEventListener('click', handleCellClick)); 
- 
+    cells.forEach((cell) => cell.addEventListener('click', handleCellClick));
   });
-
 }
-
 
 function handleGameEnd(winner) {
+  cells.forEach((cell) => cell.removeEventListener('click', handleCellClick));
 
-    cells.forEach(cell => cell.removeEventListener('click', handleCellClick)); 
+  if (winner === 'zeroid') {
+    gameStatusElement.textContent = 'Zeroids Conquer!';
+  } else if (winner === 'cube') {
+    gameStatusElement.textContent = 'Cubes Triumph!';
+  } else {
+    gameStatusElement.textContent = "It's a Draw!";
+  }
 
-    if (winner === 'zeroid') {
-      gameStatusElement.textContent = "Zeroids Conquer!"; 
-    } else if (winner === 'cube') {
-      gameStatusElement.textContent = "Cubes Triumph!";
-    } else {
-      gameStatusElement.textContent = "It's a Draw!";
-    }
-
-    restartButton.style.display = 'block'; 
-    restartButton.addEventListener('click', restartGame); 
+  restartButton.style.display = 'block';
+  restartButton.addEventListener('click', restartGame);
 }
 
-
 cells.forEach((cell) => {
-  cell.addEventListener("click", handleCellClick);
-  cell.addEventListener("mouseover", handleCellMouseOver);
-  cell.addEventListener("mouseout", handleCellMouseOut);
+  cell.addEventListener('click', handleCellClick);
+  cell.addEventListener('mouseover', handleCellMouseOver);
+  cell.addEventListener('mouseout', handleCellMouseOut);
 });
