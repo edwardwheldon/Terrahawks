@@ -1,5 +1,6 @@
 body {
   background: rgb(0, 0, 0);
+  margin: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,13 +9,39 @@ body {
 }
 
 header {
-  text-align: center;
+  display:flex;
+  width:100%;
+  margin-bottom: 0.5rem;
+}
+
+header > div {
+  display: flex;
+  flex-direction: column;
+  width:33.3%;
+  justify-content: center;
+  align-items: center;
+}
+
+header .title {
+  justify-items: center;
+  min-width: fit-content;
+} 
+
+
+
+.controls button {
+  color: white;
+  width:fit-content;
+  background-color: black;
+  padding:0.5rem;
+  border:2px solid rgb(5, 143, 0);
+  font-size: 16px;
 }
 
 h1 {
   color: white;
   text-shadow: 2px 2px 5px rgb(5, 143, 0);
-  margin-bottom: 0px;
+  margin: 0px;
 }
 
 p {
@@ -102,7 +129,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 5px;
-  animation: rotateShift 1.5s ease-in-out;
+  /* animation: rotateShift 1.5s ease-in-out; */
   position: relative;
 }
 

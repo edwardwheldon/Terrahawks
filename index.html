@@ -9,11 +9,15 @@
   </head>
   <body>
     <header>
-      <h1>TERRAHAWKS</h1>
-      <p id="gameStatus">Zeroids vs Cubes</p>
+      <div></div>
+      <div class="title">
+       <h1>TERRAHAWKS</h1>
+        <p id="gameStatus">Zeroids vs Cubes</p>
+      </div>
+      <div class="controls">
+        <button id="restartButton">Restart</button>
+      </div>
     </header>
-
-    <button id="restartButton" style="display: none">Restart</button>
 
     <div id="intro-container" class="intro-container">
       <div class="intro-lines-container-vertical">
@@ -32,7 +36,7 @@
     </div> -->
 
     <div id="container" class="container">
-      <div class="player-container">
+      <div id="player-container" class="player-container">
         <!-- zeroids -->
         <div id="zeroid0" class="zeroid zeroid0">
           <span class="z-eyes"></span>

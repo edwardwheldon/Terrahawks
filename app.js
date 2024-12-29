@@ -9,6 +9,8 @@ const grid = document.getElementById('grid');
 let isUserTurn = true;
 const gameStatusElement = document.getElementById('gameStatus');
 const restartButton = document.getElementById('restartButton');
+const playerContainer = document.getElementById('player-container');
+
 
 introLine1 = document.getElementById('intro-line1');
 introLine2 = document.getElementById('intro-line2');
@@ -18,7 +20,9 @@ introLine4 = document.getElementById('intro-line4');
 startGame();
 
 function startGame() {
+  grid.style.animation = 'rotateShift 1.5s forwards'; 
   // Show lines with initial opacity 0
+  playerContainer.style.display = 'block';
   introLine1.style.opacity = 0;
   introLine2.style.opacity = 0;
   introLine3.style.opacity = 0;
@@ -34,7 +38,7 @@ function startGame() {
   setTimeout(() => {
     introContainer.style.display = "none";
     container.style.display = "flex";
-  }, 2500); // Adjust this delay as needed
+  }, 2500);
 }
 
 
@@ -149,6 +153,7 @@ function checkWinner() {
   for (const condition of winConditions) {
     const [a, b, c] = condition;
     if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+      console.log(condition)
       return gameBoard[a];
     }
   }
@@ -204,6 +209,9 @@ function handleGameEnd(winner) {
 
   restartButton.style.display = 'block';
   restartButton.addEventListener('click', restartGame);
+
+  grid.style.animation = 'rotateShiftReverse 1s forwards'; 
+  playerContainer.style.display = 'none';
 }
 
 cells.forEach((cell) => {
