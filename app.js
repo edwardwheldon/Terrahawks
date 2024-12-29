@@ -11,7 +11,6 @@ const gameStatusElement = document.getElementById('gameStatus');
 const restartButton = document.getElementById('restartButton');
 const playerContainer = document.getElementById('player-container');
 
-
 introLine1 = document.getElementById('intro-line1');
 introLine2 = document.getElementById('intro-line2');
 introLine3 = document.getElementById('intro-line3');
@@ -20,7 +19,7 @@ introLine4 = document.getElementById('intro-line4');
 startGame();
 
 function startGame() {
-  grid.style.animation = 'rotateShift 1.5s forwards'; 
+  grid.style.animation = 'rotateShift 1.5s forwards';
   // Show lines with initial opacity 0
   playerContainer.style.display = 'block';
   introLine1.style.opacity = 0;
@@ -29,18 +28,29 @@ function startGame() {
   introLine4.style.opacity = 0;
 
   // Animate lines with delays
-  setTimeout(() => { introLine1.style.opacity = 1; }, 0);
-  setTimeout(() => { introLine2.style.opacity = 1; }, 700);
-  setTimeout(() => { introLine3.style.opacity = 1; }, 1400);
-  setTimeout(() => { introLine4.style.opacity = 1; }, 2000);
+  setTimeout(() => {
+    introLine1.style.opacity = 1;
+  }, 0);
+  setTimeout(() => {
+    introLine2.style.opacity = 1;
+  }, 700);
+  setTimeout(() => {
+    introLine3.style.opacity = 1;
+  }, 1400);
+  setTimeout(() => {
+    introLine4.style.opacity = 1;
+  }, 2000);
 
   // Hide intro, show game after final delay
   setTimeout(() => {
-    introContainer.style.display = "none";
-    container.style.display = "flex";
+    introContainer.style.display = 'none';
+    container.style.display = 'flex';
   }, 2500);
 }
 
+function animateIcon(icon) {
+  icon.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 400, fill: 'forwards' });
+}
 
 function handleCellClick(event) {
   if (!isUserTurn) {
@@ -55,18 +65,8 @@ function handleCellClick(event) {
 
     const playerIcon = document.getElementById(playerIconId);
     playerIcon.style.display = 'block';
-    playerIcon.animate(
-      [
-        { opacity: 0.25 },
-        {
-          opacity: 1,
-        },
-      ],
-      {
-        duration: 200,
-        fill: 'forwards',
-      },
-    );
+
+    animateIcon(playerIcon);
 
     currentPlayer = playerCube;
     isUserTurn = false;
@@ -116,19 +116,9 @@ function makeComputerMove() {
   const computerIconId = `${currentPlayer}${computerMoveIndex}`;
   const computerIcon = document.getElementById(computerIconId);
   computerIcon.style.display = 'block';
-  computerIcon.animate(
-    [
-      {
-        opacity: 1,
-      },
-      {
-        opacity: 0.25,
-      },
-    ],
-    {
-      duration: 200,
-    },
-  );
+
+  animateIcon(computerIcon);
+
   currentPlayer = playerZeroid;
   isUserTurn = true;
 
@@ -153,7 +143,7 @@ function checkWinner() {
   for (const condition of winConditions) {
     const [a, b, c] = condition;
     if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-      console.log(condition)
+      console.log(condition);
       return gameBoard[a];
     }
   }
@@ -210,8 +200,10 @@ function handleGameEnd(winner) {
   restartButton.style.display = 'block';
   restartButton.addEventListener('click', restartGame);
 
-  grid.style.animation = 'rotateShiftReverse 1s forwards'; 
-  playerContainer.style.display = 'none';
+  setTimeout(() => {
+    grid.style.animation = 'rotateShiftReverse 1s forwards';
+    playerContainer.style.display = 'none';
+  }, 1000);
 }
 
 cells.forEach((cell) => {
