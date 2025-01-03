@@ -11,8 +11,8 @@ const gameStatusElement = document.getElementById('gameStatus');
 const restartButton = document.getElementById('restartButton');
 const playerContainer = document.getElementById('player-container');
 
-  restartButton.style.display = 'block';
-  restartButton.addEventListener('click', restartGame);
+  restartButton.style.display = 'none';
+  restartButton.addEventListener('click', startGame);
 
 const winConditions = [
   [0, 1, 2],
@@ -33,11 +33,31 @@ introLine4 = document.getElementById('intro-line4');
 startGame();
 
 function startGame() {
+  restartButton.style.display = 'none';
+  currentPlayer = playerZeroid;
+  isUserTurn = true;
+  gameBoard.fill(null);
+  gameStatusElement.textContent = 'Zeroids vs Cubes';
+  playerContainer.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 0, fill: 'forwards' });
   cells.forEach((cell) => {
     const winnerCellDiv = cell.querySelector('.winner-zeroid-cell, .winner-cube-cell');
-        if (winnerCellDiv) {
+    if (winnerCellDiv) {
       winnerCellDiv.remove();
     }
+    const cellIndex = Array.from(cells).indexOf(cell);
+    const zeroidIconId = `zeroid${cellIndex}`;
+    const cubeIconId = `cube${cellIndex}`;
+    const zeroidIcon = document.getElementById(zeroidIconId);
+    const cubeIcon = document.getElementById(cubeIconId);
+
+    console.log(zeroidIcon);
+    console.log(cubeIcon);
+
+    zeroidIcon.style.display = 'none';
+    cubeIcon.style.display = 'none';
+
+    cells.forEach((cell) => cell.addEventListener('click', handleCellClick));
+
   });
   container.style.display = 'none';
   introContainer.style.display = 'block';
@@ -69,6 +89,8 @@ function startGame() {
   setTimeout(() => {
     introContainer.style.display = 'none';
     container.style.display = 'flex';
+    restartButton.style.display = 'block';
+    restartButton.addEventListener('click', startGame);
   }, 2500);
 }
 
@@ -170,40 +192,6 @@ function checkWinner() {
   return null; // No winner yet
 }
 
-function restartGame() {
-  // container.style.display = 'none';
-  playerContainer.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 0, fill: 'forwards' });
-  // playerContainer.style.opacity = '1';
-  startGame();
-
-  currentPlayer = playerZeroid;
-  gameBoard.fill(null);
-  isUserTurn = true;
-
-  gameStatusElement.textContent = 'Zeroids vs Cubes';
-
-  cells.forEach((cell) => {
-    // const winnerCellDiv = cell.querySelector('.winner-zeroid-cell, .winner-cube-cell');
-    //     if (winnerCellDiv) {
-    //   winnerCellDiv.remove();
-    // }
-    // cell.classList.remove('hover');
-
-    const cellIndex = Array.from(cells).indexOf(cell);
-    const zeroidIconId = `zeroid${cellIndex}`;
-    const cubeIconId = `cube${cellIndex}`;
-    const zeroidIcon = document.getElementById(zeroidIconId);
-    const cubeIcon = document.getElementById(cubeIconId);
-
-    console.log(zeroidIcon);
-    console.log(cubeIcon);
-
-    zeroidIcon.style.display = 'none';
-    cubeIcon.style.display = 'none';
-
-    cells.forEach((cell) => cell.addEventListener('click', handleCellClick));
-  });
-}
 
 function handleGameEnd(winner) {
   cells.forEach((cell) => cell.removeEventListener('click', handleCellClick));
@@ -242,15 +230,11 @@ function handleGameEnd(winner) {
     gameStatusElement.textContent = "It's a Draw!";
   }
   cells.forEach((cell) => cell.removeEventListener('click', handleCellClick));
-  // restartButton.style.display = 'block';
-  // restartButton.addEventListener('click', restartGame);
 
   setTimeout(() => {
-
     grid.style.animation = 'rotateShiftReverse 1s forwards';
   }, 1000);
 
-  // playerContainer.style.display = 'none';
 }
 
 cells.forEach((cell) => {
