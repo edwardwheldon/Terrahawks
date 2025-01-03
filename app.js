@@ -172,7 +172,8 @@ function checkWinner() {
 
 function restartGame() {
   // container.style.display = 'none';
-
+  playerContainer.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 0, fill: 'forwards' });
+  // playerContainer.style.opacity = '1';
   startGame();
 
   currentPlayer = playerZeroid;
