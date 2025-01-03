@@ -11,6 +11,20 @@ const gameStatusElement = document.getElementById('gameStatus');
 const restartButton = document.getElementById('restartButton');
 const playerContainer = document.getElementById('player-container');
 
+  restartButton.style.display = 'block';
+  restartButton.addEventListener('click', restartGame);
+
+const winConditions = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
 introLine1 = document.getElementById('intro-line1');
 introLine2 = document.getElementById('intro-line2');
 introLine3 = document.getElementById('intro-line3');
@@ -19,7 +33,15 @@ introLine4 = document.getElementById('intro-line4');
 startGame();
 
 function startGame() {
-  grid.style.animation = 'rotateShift 1.5s forwards';
+  cells.forEach((cell) => {
+    const winnerCellDiv = cell.querySelector('.winner-zeroid-cell, .winner-cube-cell');
+        if (winnerCellDiv) {
+      winnerCellDiv.remove();
+    }
+  });
+  container.style.display = 'none';
+  introContainer.style.display = 'block';
+
   // Show lines with initial opacity 0
   playerContainer.style.display = 'block';
   introLine1.style.opacity = 0;
@@ -40,6 +62,8 @@ function startGame() {
   setTimeout(() => {
     introLine4.style.opacity = 1;
   }, 2000);
+
+  grid.style.animation = 'rotateShift 1.5s forwards';
 
   // Hide intro, show game after final delay
   setTimeout(() => {
@@ -129,16 +153,6 @@ function makeComputerMove() {
 }
 
 function checkWinner() {
-  const winConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
 
   for (const condition of winConditions) {
     const [a, b, c] = condition;
@@ -157,8 +171,7 @@ function checkWinner() {
 }
 
 function restartGame() {
-  container.style.display = 'none';
-  introContainer.style.display = 'flex';
+  // container.style.display = 'none';
 
   startGame();
 
@@ -169,7 +182,12 @@ function restartGame() {
   gameStatusElement.textContent = 'Zeroids vs Cubes';
 
   cells.forEach((cell) => {
-    cell.classList.remove('hover');
+    // const winnerCellDiv = cell.querySelector('.winner-zeroid-cell, .winner-cube-cell');
+    //     if (winnerCellDiv) {
+    //   winnerCellDiv.remove();
+    // }
+    // cell.classList.remove('hover');
+
     const cellIndex = Array.from(cells).indexOf(cell);
     const zeroidIconId = `zeroid${cellIndex}`;
     const cubeIconId = `cube${cellIndex}`;
@@ -189,21 +207,49 @@ function restartGame() {
 function handleGameEnd(winner) {
   cells.forEach((cell) => cell.removeEventListener('click', handleCellClick));
 
-  if (winner === 'zeroid') {
-    gameStatusElement.textContent = 'Zeroids Conquer!';
-  } else if (winner === 'cube') {
-    gameStatusElement.textContent = 'Cubes Triumph!';
+  if (winner === 'zeroid' || winner === 'cube') {
+    gameStatusElement.textContent = winner === 'zeroid' ? 'Zeroids Conquer!' : 'Cubes Triumph!';
+
+    // Identify winning cells
+    const winningCells = [];
+    winConditions.forEach((condition) => {
+      const [a, b, c] = condition;
+      if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c] && gameBoard[a] === winner) {
+        winningCells.push(a, b, c);
+      }
+    });
+
+    // Create winner cell div and apply class based on winner
+    winningCells.forEach((index) => { 
+      let winnerCellDiv; 
+      winnerCellDiv = document.createElement('div');
+
+      if (winner === 'cube') { 
+        const crossSpan = document.createElement('span');
+        crossSpan.classList.add('winner-cube-cross'); 
+        crossSpan.classList.add('cross'); 
+        winnerCellDiv.appendChild(crossSpan); 
+      }
+
+      playerContainer.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1000, fill: 'forwards' });
+      winnerCellDiv.classList.add(winner === 'zeroid' ? 'winner-zeroid-cell' : 'winner-cube-cell');
+      setTimeout(() => {
+      cells[index].appendChild(winnerCellDiv); 
+    }, 1000);
+    });
   } else {
     gameStatusElement.textContent = "It's a Draw!";
   }
-
-  restartButton.style.display = 'block';
-  restartButton.addEventListener('click', restartGame);
+  cells.forEach((cell) => cell.removeEventListener('click', handleCellClick));
+  // restartButton.style.display = 'block';
+  // restartButton.addEventListener('click', restartGame);
 
   setTimeout(() => {
+
     grid.style.animation = 'rotateShiftReverse 1s forwards';
-    playerContainer.style.display = 'none';
   }, 1000);
+
+  // playerContainer.style.display = 'none';
 }
 
 cells.forEach((cell) => {

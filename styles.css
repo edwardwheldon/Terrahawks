@@ -140,6 +140,31 @@ p {
 
 .grid div {
   background-color: rgb(0, 0, 0);
+  position: relative;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.grid div div.winner-zeroid-cell {
+  position: absolute;
+  top:40px;
+  left:40px;
+  width:80px;
+  height:80px;
+  border-radius: 50%;
+  border: 2px solid #3e89fb;
+  /* Styles for the winning cells for Zeroids */
+
+}
+
+.grid div.winner-cube-cell {
+  position: absolute;
+  top:40px;
+  left:40px;
+  width:80px;
+  height:80px;
+  border: 2px solid #fa0000;
 }
 
 :root {
@@ -300,6 +325,10 @@ p {
 
 .bottom {
   transform: rotateX(-90deg) translateZ(34px);
+}
+
+.winner-cube-cross {
+  left:39px;
 }
 
 .cross {
