@@ -11,9 +11,6 @@ const gameStatusElement = document.getElementById('gameStatus');
 const restartButton = document.getElementById('restartButton');
 const playerContainer = document.getElementById('player-container');
 
-  restartButton.style.display = 'none';
-  restartButton.addEventListener('click', startGame);
-
 const winConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -40,9 +37,9 @@ function startGame() {
   gameStatusElement.textContent = 'Zeroids vs Cubes';
   playerContainer.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 0, fill: 'forwards' });
   cells.forEach((cell) => {
-    const winnerCellDiv = cell.querySelector('.winner-zeroid-cell, .winner-cube-cell');
-    if (winnerCellDiv) {
-      winnerCellDiv.remove();
+    const winnerCellDivs = cell.querySelectorAll('.winner-zeroid-cell, .winner-cube-cell');
+    if (winnerCellDivs) {
+      winnerCellDivs.forEach((div) => div.remove());
     }
     const cellIndex = Array.from(cells).indexOf(cell);
     const zeroidIconId = `zeroid${cellIndex}`;
@@ -55,10 +52,10 @@ function startGame() {
 
     zeroidIcon.style.display = 'none';
     cubeIcon.style.display = 'none';
-
-    cells.forEach((cell) => cell.addEventListener('click', handleCellClick));
-
   });
+
+  cells.forEach((cell) => cell.addEventListener('click', handleCellClick));
+
   container.style.display = 'none';
   introContainer.style.display = 'block';
 
@@ -75,10 +72,10 @@ function startGame() {
   }, 0);
   setTimeout(() => {
     introLine2.style.opacity = 1;
-  }, 700);
+  }, 800);
   setTimeout(() => {
     introLine3.style.opacity = 1;
-  }, 1400);
+  }, 1500);
   setTimeout(() => {
     introLine4.style.opacity = 1;
   }, 2000);
@@ -175,7 +172,6 @@ function makeComputerMove() {
 }
 
 function checkWinner() {
-
   for (const condition of winConditions) {
     const [a, b, c] = condition;
     if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
@@ -191,7 +187,6 @@ function checkWinner() {
 
   return null; // No winner yet
 }
-
 
 function handleGameEnd(winner) {
   cells.forEach((cell) => cell.removeEventListener('click', handleCellClick));
@@ -209,32 +204,34 @@ function handleGameEnd(winner) {
     });
 
     // Create winner cell div and apply class based on winner
-    winningCells.forEach((index) => { 
-      let winnerCellDiv; 
+    winningCells.forEach((index) => {
+      let winnerCellDiv;
       winnerCellDiv = document.createElement('div');
 
-      if (winner === 'cube') { 
+      if (winner === 'cube') {
         const crossSpan = document.createElement('span');
-        crossSpan.classList.add('winner-cube-cross'); 
-        crossSpan.classList.add('cross'); 
-        winnerCellDiv.appendChild(crossSpan); 
+        crossSpan.classList.add('winner-cube-cross');
+        crossSpan.classList.add('cross');
+        winnerCellDiv.appendChild(crossSpan);
       }
 
       playerContainer.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1000, fill: 'forwards' });
+
       winnerCellDiv.classList.add(winner === 'zeroid' ? 'winner-zeroid-cell' : 'winner-cube-cell');
+
       setTimeout(() => {
-      cells[index].appendChild(winnerCellDiv); 
-    }, 1000);
+        cells[index].appendChild(winnerCellDiv);
+      }, 1000);
+      
     });
   } else {
-    gameStatusElement.textContent = "It's a Draw!";
+    return (gameStatusElement.textContent = "It's a Draw!");
   }
   cells.forEach((cell) => cell.removeEventListener('click', handleCellClick));
 
   setTimeout(() => {
     grid.style.animation = 'rotateShiftReverse 1s forwards';
   }, 1000);
-
 }
 
 cells.forEach((cell) => {
